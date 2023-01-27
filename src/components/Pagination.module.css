@@ -1,0 +1,375 @@
+/* import poppins font from google */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
+/* css reset */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  font-size: 10px;
+  color: #000000;
+}
+
+/* root colors and background colors */
+:root {
+  --primary-bg: #516beb;
+  --primary-color: #516beb;
+  --secondary-color: #f5801c;
+  --button-bg: #f9b326;
+  --button-color: #fff;
+}
+
+/* ---------------------popular courses styling starts here------------------ */
+.courses-container {
+  margin-top: 70px;
+}
+
+.courses-container-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 55px;
+}
+
+.courses-container-header h1 {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 119.5%;
+  color: var(--primary-color);
+  flex-grow: 1;
+}
+
+.courses-container-header div {
+  display: flex;
+  align-items: center;
+  border-radius: 9px;
+}
+
+/* search bar style */
+.search-bar {
+  border: 2px solid #516beb;
+  padding: 0 5px;
+}
+
+.search-bar input {
+  border: none;
+  height: 100%;
+  min-width: 180px;
+  padding: 10px;
+  font-size: 12px;
+}
+
+.search-bar input:focus {
+  outline: 2px solid #fff;
+}
+
+.search-bar input::placeholder {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  color: #516beb;
+}
+
+.search-bar #font {
+  fill: #516beb;
+  font-size: 30px;
+  margin-right: 10px;
+}
+
+/* pagination numbers styling */
+.courses-category-font {
+  fill: var(--primary-color);
+  font-size: 26px;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.paginationItem {
+  background: #fff;
+  border: none;
+  height: 100%;
+  width: 45px;
+  position: relative;
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+.paginationItem span {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: #42526e;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.prev,
+.next {
+  background: #fff;
+  color: var(--primary-color);
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  margin: 0 5px;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.paginationItem.active {
+  background: #516beb;
+  border-radius: 3px;
+  padding: 20px 0;
+  color: #fff;
+  pointer-events: none;
+}
+
+.paginationItem.active span {
+  color: white;
+}
+
+.prev.disabled,
+.next.disabled,
+.courses-category-font.disabled {
+  pointer-events: none;
+  color: #999;
+  fill: #999;
+}
+
+/* -------flexed courses column------ */
+.flex-courses {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.flex-courses-column {
+  width: 100%;
+  background: #ffffff;
+  border: 2px solid rgba(81, 107, 235, 0.2);
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.flex-courses-column h2 {
+  color: var(--primary-bg);
+  cursor: pointer;
+  font-size: 1.7rem;
+}
+
+.flex-courses-column a {
+  text-decoration: none;
+}
+
+.flex-courses-column a:hover h2 {
+  color: #1a2f96;
+}
+
+/* -------image container------ */
+.flex-courses-image-container {
+  width: 100%;
+  height: 30vh;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  box-shadow: rgba(99, 99, 99, 0.3) 0px 2px 8px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.react-player {
+  position: absolute;
+  padding: 5px;
+  border: 5px solid #516beb;
+}
+
+.play-icon-body {
+  display: none;
+  position: absolute;
+  background: var(--primary-bg);
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+  width: 60px;
+  padding-left: 5px;
+  cursor: pointer;
+}
+
+.play-icon {
+  fill: #fff;
+  font-size: 50px;
+}
+
+.flex-courses-image-container img {
+  width: 100%;
+  height: 100%;
+  border-radius: 6px;
+}
+
+.flex-courses-image-container:hover .play-icon-body {
+  display: flex;
+  animation: zoom-in 250ms ease-in-out alternate;
+}
+
+@keyframes zoom-in {
+  0% {
+    transform: scale(0.6, 0.6);
+  }
+
+  50% {
+    transform: scale(0.8, 0.8);
+  }
+
+  100% {
+    transform: scale(1, 1);
+  }
+}
+
+/* ----------grid-styling on desktop view------------- */
+@media (min-width: 600px) {
+  .flex-courses {
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 4rem 8rem;
+  }
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width: 768px) and (max-width: 960px) {
+  .courses-container-header h1 {
+    font-size: 30px;
+    font-weight: 600;
+  }
+
+  .courses-category-font {
+    height: 15px;
+    width: 15px;
+    margin: auto 2px;
+  }
+
+  .paginationItem span {
+    font-size: 14px;
+  }
+
+  .prev,
+  .next {
+    font-size: 14px;
+    padding: 10px 10px;
+  }
+
+  /* -------flexed courses column------ */
+  .flex-courses {
+    grid-gap: 30px;
+  }
+
+  /* -------image container------ */
+  .flex-courses-image-container {
+    height: 150px;
+    overflow: hidden;
+  }
+
+  .flex-courses-column h2 {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+
+  /* ---------------------popular courses styling starts here------------------ */
+  .courses-container {
+    margin-top: 0;
+    padding: 0 30px;
+  }
+
+  .courses-container-header {
+    margin-bottom: 10px;
+  }
+
+  .courses-container-header h1 {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 22px;
+  }
+
+  .courses-container-header .search-bar {
+    display: none;
+  }
+
+  .courses-category-font {
+    height: 15px;
+    width: 15px;
+    margin: auto 2px;
+  }
+
+  .courses-container-header>.pagination {
+    display: none;
+  }
+
+  .pagination {
+    display: flex;
+    width: 50%;
+    margin: 10px auto;
+  }
+
+  .paginationItem {
+    height: 100%;
+    width: 100%;
+    margin: 0 25px;
+  }
+
+  .paginationItem span {
+    font-size: 1.3rem;
+  }
+
+  .prev,
+  .next {
+    font-size: 1.3rem;
+    /* padding: 10px 10px; */
+  }
+
+  .paginationItem.active {
+    margin: 0 5px;
+    padding: 15px 17px;
+  }
+
+  /* -------flexed courses column------ */
+  .flex-courses {
+    grid-gap: 30px;
+  }
+
+  /* -------image container------ */
+  .flex-courses-image-container {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+  }
+
+  .flex-courses-column h2 {
+    font-weight: 500;
+    font-size: 14px;
+  }
+
+  .post-heading {
+    font-size: 20px;
+  }
+
+  .post-paragraph {
+    text-indent: 20px;
+    font-size: 16px;
+  }
+}
