@@ -1,5 +1,5 @@
 import React from 'react';
-import Pagination from './Pagination';
+import Pagination from './Pagination/Pagination';
 
 const MovieList = ({ movies }) => {
   return (
