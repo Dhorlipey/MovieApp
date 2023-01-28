@@ -19,7 +19,7 @@ body {
   text-decoration: none;
 }
 
-.header form input,
+.header input,
 .header button {
   font-size: 16px;
 }

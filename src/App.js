@@ -9,15 +9,16 @@ function App() {
   const [searchValue, setSearchValue] = useState('');
 
   const getMovieList = async () => {
-    await fetch('https://imdb-api.com/en/API/MostPopularMovies/k_zfntaf3f')
+    await fetch('https://imdb-api.com/en/API/MostPopularMovies/k_zfntaf3f/')
       .then(response => response.json())
       .then(data => setMovies(data.items))
   }
   useEffect(() => {
     getMovieList()
   }, [])
+
   const searchMovie = async () => {
-    await fetch(`https://imdb-api.com/en/API/Search/k_zfntaf3f/${searchValue}`)
+    await fetch(`https://imdb-api.com/en/API/Search/k_zfntaf3f/${searchValue}/`)
       .then(response => response.json())
       .then(data => setMovies(data.results))
   }
@@ -46,12 +47,12 @@ function App() {
       </div> */}
       <nav className="navbar header navbar-expand-lg navbar-light" >
         <div className='container'>
-          <a href="#" className="navbar-brand title" style={{ color: 'white', fontWeight: 'bold' }}>Movies App</a>
-          <form className='d-flex gap-3'>
+          <a href="/" className="navbar-brand title" style={{ color: 'white', fontWeight: 'bold' }}>Movies App</a>
+          <div className='d-flex gap-3'>
             <input placeholder="search movies" className="search-box py-2 form-control" value={searchValue} onChange={handleChange} />
             <button onClick={searchMovie} className="search-btn btn btn-primary" style={{ border: 'none', color: 'white' }}>Search By Title</button>
             <button onClick={searchAll} className="search-btn btn btn-primary" style={{ border: 'none', color: 'white' }}>Search All</button>
-          </form>
+          </div>
         </div>
       </nav>
       <div className='container movie-app'>
